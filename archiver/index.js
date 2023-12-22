@@ -3,8 +3,11 @@ var fs = require('fs');
 
 
 module.exports= (file,io,data)=>{
-
-    var output = fs.createWriteStream("./public/sites/" +file+ '.zip');
+  var date=new Date();
+  let day = date.getDate();
+  let month = date.getMonth();
+  console.log(day+"-"+month);
+    var output = fs.createWriteStream("./public/sites/"+day+"-"+month+"/"+file+ '.zip');
 var archive = archiver('zip', {
   zlib: { level: 9 } // Sets the compression level.
 });
